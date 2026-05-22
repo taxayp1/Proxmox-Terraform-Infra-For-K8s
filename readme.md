@@ -63,4 +63,4 @@ The live platform architecture is segmented into the following dedicated operati
 ---
 
 Companion Repository Link
-The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: [k8s-homelab-gitops](https://github.com/YOUR_GITHUB_USERNAME/k8s-homelab-gitops)
+The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: [K8s-HomeLab-Gitops](https://github.com/taxayp1/K8s-HomeLab-Gitops)
