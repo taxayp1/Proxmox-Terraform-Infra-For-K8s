@@ -25,7 +25,7 @@ The table below details the declarative allocation of physical resources across 
 
   IaC & State Governance
 
-* Core Provisioning Engine:** Terraform (HashiCorp Configuration Language - HCL)
+* Core Provisioning Engine: Terraform (HashiCorp Configuration Language - HCL)
 * Target Environment REST API: Proxmox VE Integration via the `bpg/proxmox` provider engine
 * Secrets Isolation & Decoupling: Dynamic local credentials mapping utilizing un-tracked variable injection rules (`terraform.tfvars`) coupled with strict `.gitignore` tracking boundaries.
 * Advanced State Management: Native state ingestion logic utilizing specific state-import blocks to align live hypervisor runtime profiles without causing system reboots or service disruption.
@@ -46,8 +46,8 @@ The live platform architecture is segmented into the following dedicated operati
 
   Persistent Distributed Storage
 
-* Distributed Block Storage:** Longhorn engine configured with automated multi-replica synchronous mirroring, providing high-performance Persistent Volume Claims (PVCs) directly to worker nodes.
-* Local Storage Provisioner:** Kubernetes Local Path Provisioner utilized for localized stateless application workloads.
+* Distributed Block Storage: Longhorn engine configured with automated multi-replica synchronous mirroring, providing high-performance Persistent Volume Claims (PVCs) directly to worker nodes.
+* Local Storage Provisioner: Kubernetes Local Path Provisioner utilized for localized stateless application workloads.
 
   Zero-Trust Security & Identity
 
