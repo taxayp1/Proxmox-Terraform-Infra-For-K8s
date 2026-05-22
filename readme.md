@@ -10,13 +10,13 @@ The table below details the declarative allocation of physical resources across 
 
   Virtual Infrastructure Map
 
-* pve01 (Hypervisor Host 1)
+* pve01 (Proxmox Host 1)
     * `cp-01` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage.
     * `wk-01` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk + 100GB Dedicated Storage Disk.
-* pve02 (Hypervisor Host 2)
+* pve02 (Proxmox Host 2)
     * `cp-02` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage, Layer-2 Edge Firewall Active.
     * `wk-02` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk + 100GB Dedicated Storage Disk, Layer-2 Edge Firewall Active.
-* pve03 (Hypervisor Host 3)
+* pve03 (Proxmox Host 3)
     * `cp-03` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage.
     * `wk-03` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk + 100GB Dedicated Storage Disk.
 ---
