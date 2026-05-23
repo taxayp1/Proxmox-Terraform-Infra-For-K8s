@@ -170,19 +170,20 @@ source ~/.bashrc
 Apply these fixes on the base Ubuntu operating system layer right after cloning the VM from Proxmox to prevent hardware network hangs under load.
 
 
-# Add to the bottom of your physical 'iface' section
+Add to the bottom of your physical 'iface' section
+
 post-up /usr/sbin/ethtool -K $IFACE tso off gso off gro off tx off rx off
 post-up /usr/sbin/ethtool -K $IFACE sg off rxvlan off txvlan off
 
 
 
-# 1. Edit the file
+1. Edit the file
 nano /etc/default/grub
 
-# 2. Update this line
+2. Update this line
 GRUB_CMDLINE_LINUX_DEFAULT="quiet pcie_aspm=off e1000e.IntMode=1 e1000e.InterruptThrottleRate=4,4 intel_idle.max_cstate=1"
 
-# 3. Apply changes
+3. Apply changes
 update-grub
 reboot
 
