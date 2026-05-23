@@ -1,4 +1,4 @@
-swap off and edit fstab to put # in last line for persistent 
+swap off and edit fstab to put # in last line from of swap for persistent 
 
 
 1) sudo swapoff -a
@@ -21,7 +21,7 @@ Apply the changes
 
 
 
-overlay and netfilter setting
+load overlay and netfilter
 
 5) cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
    overlay
@@ -42,7 +42,7 @@ generate default config
 
 9) sudo containerd config default | sudo tee /etc/containerd/config.toml
 
-edit dafult config and put true front of system cgroup option
+edit dafult config and put true front of systemd cgroup option
 
 10) sudo vim /etc/containerd/config.toml
 
@@ -59,7 +59,7 @@ apt-transport-https may be a dummy package; if so, you can skip that package
 13) sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 
 
-download public signing key for repo and particular version
+download public signing key for k8s repo with particular version
 
 14) curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.35/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
