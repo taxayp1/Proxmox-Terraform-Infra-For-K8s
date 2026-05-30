@@ -32,35 +32,18 @@ The table below details the declarative allocation of physical resources across 
 
 ---
 
- Downstream Cloud-Native Platform Architecture
+Downstream Cloud-Native Platform Architecture
 
-The compute resources provisioned by this infrastructure layer power a highly resilient, multi-master Kubernetes cluster (`v1.35`) bootstrapped via `kubeadm`. 
+The compute resources provisioned by this infrastructure layer power a highly resilient, multi-master Kubernetes cluster (v1.35) bootstrapped via kubeadm. It is intentionally scaled to support heavy, stateful enterprise workloads such as self-hosted VCS (Gitea) and private cloud storage (Nextcloud).
 
 The live platform architecture is segmented into the following dedicated operational domains:
 
-  Networking & Edge Load Balancing
+Networking & Edge Load Balancing: Cilium CNI featuring an eBPF-driven network data plane, MetalLB for Layer-4 load balancing, and Kube-VIP providing a highly available virtual floating master IP.
 
-* Container Network Interface (CNI): Cilium CNI featuring an eBPF-driven network data plane, high-performance packet routing, and built-in Hubble network telemetry.
-* Layer-4 Service Load Balancing: MetalLB acting as an on-premise cloud load balancer to dynamically advertise external service IPs.
-* Control Plane High Availability: Kube-VIP providing a highly available virtual floating master IP paired with Ingress-NGINX edge controllers.
+Persistent Distributed Storage: Longhorn engine configured with automated multi-replica synchronous mirroring, providing high-performance Persistent Volume Claims (PVCs) directly to worker nodes for stateful applications.
 
-  Persistent Distributed Storage
+Zero-Trust Security & Identity: HashiCorp Vault driving the encryption backend, integrated with the External Secrets Operator (ESO) to natively sync values into Kubernetes without exposing clear-text strings. Cert-Manager automates TLS provisioning via Cloudflare DNS-01 challenges.
 
-* Distributed Block Storage: Longhorn engine configured with automated multi-replica synchronous mirroring, providing high-performance Persistent Volume Claims (PVCs) directly to worker nodes.
-* Local Storage Provisioner: Kubernetes Local Path Provisioner utilized for localized stateless application workloads.
+Continuous Delivery & Observability: ArgoCD managing continuous deployment directly from a local Gitea instance. Full telemetry pipelines feature Prometheus monitoring, Grafana metrics visualization, and Loki log gathering.
 
-  Zero-Trust Security & Identity
-
-* Centralized Secrets Vaulting: HashiCorp Vault driving the encryption backend.
-* Secrets Lifecycle Injection: External Secrets Operator (ESO) integration to natively sync Vault values into Kubernetes namespaces without ever exposing clear-text strings in version control.
-* PKI Automation: Cert-Manager driving the automated provisioning and lifecycle tracking of TLS certificates.
-
-  Continuous Delivery (GitOps) & Observability
-
-* Declarative GitOps Engine: ArgoCD managing continuous deployment, dynamically reconciling repository manifests with active live cluster state.
-* Full Observability Matrix: Complete telemetry pipelines featuring Prometheus Operator monitoring, Grafana metrics visualization, and Loki log gathering agents.
-
----
-
-Companion Repository Link
-The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: [K8s-HomeLab-Gitops](https://github.com/taxayp1/K8s-HomeLab-Gitops)
+Companion Repository Link: The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: K8s-HomeLab-Gitops
