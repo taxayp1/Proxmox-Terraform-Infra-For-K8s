@@ -46,4 +46,4 @@ Zero-Trust Security & Identity: HashiCorp Vault driving the encryption backend, 
 
 Continuous Delivery & Observability: ArgoCD managing continuous deployment directly from a local Gitea instance. Full telemetry pipelines feature Prometheus monitoring, Grafana metrics visualization, and Loki log gathering.
 
-Companion Repository Link: The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: K8s-HomeLab-Gitops
+Companion Repository Link: The manifest layouts driven by this infrastructure layer are located in the dedicated GitOps repository here: K8s-HomeLab-Gitops(https://github.com/taxayp1/K8s-HomeLab-Gitops.git)
