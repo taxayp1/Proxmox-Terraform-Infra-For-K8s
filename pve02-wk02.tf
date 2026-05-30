@@ -40,7 +40,6 @@ resource "proxmox_virtual_environment_vm" "web_server-wk02" {
     type         = "4m"
   }
 
-  # First Storage Disk (OS Disk)
   disk {
     interface         = "scsi0"
     datastore_id      = "local-lvm"
@@ -53,20 +52,6 @@ resource "proxmox_virtual_environment_vm" "web_server-wk02" {
     path_in_datastore = "vm-104-disk-1"
   }
 
-  # Second Storage Disk (Data Disk)
-  disk {
-    interface         = "scsi1"
-    datastore_id      = "local-lvm"
-    file_format       = "raw"
-    size              = 100
-    cache             = "none"
-    aio               = "io_uring"
-    discard           = "on"
-    iothread          = true
-    path_in_datastore = "vm-104-disk-2"
-    ssd               = true
-  }
-
   network_device {
     bridge      = "vmbr0"
     model       = "virtio"
@@ -74,4 +59,10 @@ resource "proxmox_virtual_environment_vm" "web_server-wk02" {
     queues      = 2
     firewall    = true                
   }
-}
+  lifecycle {
+    ignore_changes = [
+      disk,    
+      hostpci    
+    ]
+  }
+ }

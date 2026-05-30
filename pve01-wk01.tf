@@ -53,23 +53,18 @@ resource "proxmox_virtual_environment_vm" "web_server-wk01" {
     path_in_datastore = "vm-102-disk-1"
   }
 
-  disk {
-    interface         = "scsi1"
-    datastore_id      = "local-lvm"
-    file_format       = "raw"
-    size              = 100
-    cache             = "none"
-    aio               = "io_uring"
-    discard           = "on"
-    iothread          = true
-    path_in_datastore = "vm-102-disk-2"
-    ssd               = true
-  }
-
   network_device {
     bridge      = "vmbr0"
     model       = "virtio"
     mac_address = "BC:24:11:9E:98:04" 
     queues      = 2
   }
-}
+
+
+  lifecycle {
+    ignore_changes = [
+      disk,    
+      hostpci
+    ]
+  }
+ }
