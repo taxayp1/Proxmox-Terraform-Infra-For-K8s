@@ -27,7 +27,7 @@ resource "proxmox_virtual_environment_vm" "web_server-wk03" {
   }
 
   memory {
-    dedicated = 12288
+    dedicated = 21504
   }
 
   operating_system {

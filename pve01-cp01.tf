@@ -29,7 +29,7 @@ resource "proxmox_virtual_environment_vm" "web_server" {
   }
 
   memory {
-    dedicated = 7168
+    dedicated = 9214
   }
 
   operating_system {
@@ -51,6 +51,7 @@ resource "proxmox_virtual_environment_vm" "web_server" {
     aio               = "io_uring"
     discard           = "on"
     iothread          = true
+    ssd               = true
     path_in_datastore = "vm-100-disk-1"
   }
 
