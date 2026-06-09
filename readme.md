@@ -11,14 +11,14 @@ The table below details the declarative allocation of physical resources across 
   Virtual Infrastructure Map
 
 * pve01 (Proxmox Host 1)
-    * `cp-01` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage.
-    * `wk-01` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
+    * `cp-01` (Control Plane Node): 2 vCPUs (Host-Passthrough), 9GB ECC RAM, 32GB VirtIO Boot Storage.
+    * `wk-01` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 24GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
 * pve02 (Proxmox Host 2)
-    * `cp-02` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage, Layer-2 Edge Firewall Active.
-    * `wk-02` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
+    * `cp-02` (Control Plane Node): 2 vCPUs (Host-Passthrough), 8GB ECC RAM, 32GB VirtIO Boot Storage, Layer-2 Edge Firewall Active.
+    * `wk-02` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 21GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
 * pve03 (Proxmox Host 3)
-    * `cp-03` (Control Plane Node): 2 vCPUs (Host-Passthrough), 7GB ECC RAM, 32GB VirtIO Boot Storage.
-    * `wk-03` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 12GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
+    * `cp-03` (Control Plane Node): 2 vCPUs (Host-Passthrough), 8GB ECC RAM, 32GB VirtIO Boot Storage.
+    * `wk-03` (Worker Compute Node): 2 vCPUs (Host-Passthrough), 21GB ECC RAM, 32GB Boot Disk(1st M2) + 256GB(2nd M2) Dedicated Storage Disk for Longhorn.
 ---
 
   Infrastructure Core Automation Stack
