@@ -51,6 +51,7 @@ resource "proxmox_virtual_environment_vm" "web_server-wk03" {
     discard           = "on"
     iothread          = true
     path_in_datastore = "vm-106-disk-1"
+    ssd               = true
   }
 
   network_device {
