@@ -45,7 +45,7 @@ resource "proxmox_virtual_environment_vm" "web_server-wk01" {
     interface         = "scsi0"
     datastore_id      = "local-lvm"
     file_format       = "raw"
-    size              = 32
+    size              = 50
     cache             = "writeback"
     aio               = "io_uring"
     discard           = "on"
@@ -63,8 +63,8 @@ resource "proxmox_virtual_environment_vm" "web_server-wk01" {
 
 
   lifecycle {
-    ignore_changes = [
-      disk,    
+    ignore_changes = [  
+      disk, 
       hostpci
     ]
   }
